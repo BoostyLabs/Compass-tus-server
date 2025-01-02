@@ -1,4 +1,4 @@
-name = "tus-server"
+name = "tus-server-worker"
 main = "src/index.ts"
 compatibility_date = "2023-05-10"
 compatibility_flags = ["nodejs_compat"]
@@ -14,6 +14,9 @@ durable_objects.bindings = [
     { name = "ATTACHMENT_UPLOAD_HANDLER", class_name = "AttachmentUploadHandler" },
     { name = "BACKUP_UPLOAD_HANDLER", class_name = "BackupUploadHandler" }
 ]
+
+[observability.logs]
+enabled = true
 
 [[migrations]]
 tag = "v1"
