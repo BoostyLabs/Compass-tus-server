@@ -1,4 +1,4 @@
-name = "fragrant-voice-c9c3"
+name = "tus-server"
 main = "src/index.ts"
 compatibility_date = "2023-05-10"
 compatibility_flags = ["nodejs_compat"]
