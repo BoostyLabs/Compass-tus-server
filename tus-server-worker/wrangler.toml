@@ -15,9 +15,6 @@ durable_objects.bindings = [
     { name = "BACKUP_UPLOAD_HANDLER", class_name = "BackupUploadHandler" }
 ]
 
-[observability.logs]
-enabled = true
-
 [[migrations]]
 tag = "v1"
 new_classes = ["UploadHandler"]
