@@ -1,4 +1,4 @@
-name = "cdn3-dev"
+name = "tus-server-dev"
 main = "src/index.ts"
 compatibility_date = "2023-05-10"
 compatibility_flags = ["nodejs_compat"]
@@ -6,8 +6,8 @@ logpush = true
 
 # Specifies the r2 buckets. r2 bucket names are scoped to your account (not global). The buckets should be publicly inaccessible.
 r2_buckets = [
-    { binding = "ATTACHMENT_BUCKET", bucket_name = "attachments-staging", preview_bucket_name = "attachments-staging" },
-    { binding = "BACKUP_BUCKET", bucket_name = "backups-staging", preview_bucket_name = "backups-staging" }
+    { binding = "ATTACHMENT_BUCKET", bucket_name = "attachments-develop", preview_bucket_name = "attachments-develop" },
+    { binding = "BACKUP_BUCKET", bucket_name = "backups-develop", preview_bucket_name = "backups-develop" }
 ]
 
 durable_objects.bindings = [
@@ -44,6 +44,17 @@ durable_objects.bindings = [
 r2_buckets = [
     { binding = "ATTACHMENT_BUCKET", bucket_name = "attachments-staging", preview_bucket_name = "attachments-staging" },
     { binding = "BACKUP_BUCKET", bucket_name = "backups-staging", preview_bucket_name = "backups-staging" }
+]
+
+[env.develop]
+name = "cdn3-develop"
+durable_objects.bindings = [
+    { name = "ATTACHMENT_UPLOAD_HANDLER", class_name = "AttachmentUploadHandler" },
+    { name = "BACKUP_UPLOAD_HANDLER", class_name = "BackupUploadHandler" }
+]
+r2_buckets = [
+    { binding = "ATTACHMENT_BUCKET", bucket_name = "attachments-develop", preview_bucket_name = "attachments-develop" },
+    { binding = "BACKUP_BUCKET", bucket_name = "backups-develop", preview_bucket_name = "backups-develop" }
 ]
 
 # To set an auth secret,
